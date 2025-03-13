@@ -32,7 +32,7 @@ const MainNavBar = () => {
     // Navigation function for all links
     const navigateTo = (path) => {
         navigate(path);
-        setIsOpen(false); 
+        setIsOpen(false);
     };
 
     return (
@@ -141,6 +141,15 @@ const MainNavBar = () => {
                                     onClick={() => navigateTo('/login')}
                                     className='bg-Btn text-white rounded-lg font-bold text-lg py-3 px-6 w-full hover:bg-black hover:text-white transition duration-500'>
                                     Log In
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                    onClick={() => navigate('/signup')}
+                                    className='border-blue-600 border-2 text-[linear-gradient(to_top,#4481eb_0%,#04befe_100%)] rounded-lg font-bold text-sm md:text-sm py-3 md:py-3 px-4 md:px-5   hover:text-white transition-all duration-500'>
+                                    <span
+                                        className="text-sm md:text-sm font-bold bg-[linear-gradient(to_top,#4481eb_0%,#04befe_100%)] bg-clip-text text-transparent">
+                                        Start for Free</span>
                                 </button>
                             </li>
                         </ul>
