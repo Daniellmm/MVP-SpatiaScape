@@ -1,10 +1,10 @@
+// App.js
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { Orders, Employees, Customers, Ecommerce } from './pages';                            
-
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
 import { useStateContext } from './contexts/ContextProvider';
 import './App.css';
@@ -14,6 +14,11 @@ import SignUp from './pages/SignUp';
 import LandingPage from './pages/LandingPage'; 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Features from './pages/Features';
+import Pricing from './pages/Pricing';
+import Docs from './pages/Docs';
+import Contact from './pages/Contact';
+import Layout from './components/Layout';
 
 const App = () => {
   const { activeMenu, isAuthenticated } = useStateContext();
@@ -58,13 +63,14 @@ const App = () => {
             {/* Routes */}
             <div>
               <Routes>
+                {/* Routes that are accessible to all */}
+                <Route path='/' element={<Layout><LandingPage /></Layout>} />
+                <Route path='/features' element={<Layout><Features /></Layout>} />
+                <Route path='/pricing' element={<Layout><Pricing /></Layout>} />
+                <Route path='/docs' element={<Layout><Docs /></Layout>} />
+                <Route path='/contact' element={<Layout><Contact /></Layout>} />
 
-                {/* Routes that are only - Accessible to all */}
-                <Route path='/' element={<LandingPage />} />
-
-
-
-                {/*Routes that are only - Only accessible if not authenticated */}
+                
                 <Route
                   path='/login'
                   element={isAuthenticated ? <Navigate to="/dashboard" /> : <SignIn />}
@@ -73,6 +79,8 @@ const App = () => {
                   path='/signup'
                   element={isAuthenticated ? <Navigate to="/dashboard" /> : <SignUp />}
                 />
+
+                {/* Routes that are only accessible if authenticated */}
                 <Route
                   path='/dashboard'
                   element={isAuthenticated ? <Ecommerce /> : <Navigate to="/login" />}
@@ -89,7 +97,6 @@ const App = () => {
                   path='/settings'
                   element={isAuthenticated ? <Customers /> : <Navigate to="/login" />}
                 />
-                
               </Routes>
             </div>
           </div>

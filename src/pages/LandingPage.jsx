@@ -52,7 +52,7 @@ const LandingPage = () => {
 
             <h1 className=' relative z-10 font-bold lg:text-5xl text-3xl px-5 text-center'>Unlock the Power of 3D for Your <br /> Real Estate Listings</h1>
             <p className='relative z-10 text-sm text-gray-500 pt-7 px-6 lg:mx-48 pb-2 text-center'>Give potential buyers a fully immersive experience with interactive 3D property views.
-              We handle the scanning—you get an embed-ready virtual tour to showcase properties on any website.</p>
+              We handle the scanning then you get an embed-ready virtual tour to showcase properties on any website.</p>
             <div className=' relative z-10 flex justify-center items-center gap-x-3 pb-5 mx-10'>
               <h1 className='text-xs md:text-sm text-gray-500 font-bold'>Boost Engagement</h1>
               <div className='h-4 w-[2px] bg-[linear-gradient(to_top,#4481eb_0%,#04befe_100%)]'></div>
