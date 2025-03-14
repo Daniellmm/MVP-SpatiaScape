@@ -88,9 +88,12 @@ const Pricing = () => {
     <>
       <section>
         <div className='flex flex-col w-full justify-start items-center pb-10 pt-44 relative overflow-hidden bg-gradient-to-b from-blue-300 to-white'>
-          <h1 className='font-bold lg:text-7xl text-3xl px-5 text-center'>
-            Bring Customers Closer To You
-          </h1>
+          
+        <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl text-black font-bold mb-4">Bring Customers Closer To You</h2>
+            <div className="w-24 h-1 bg-[linear-gradient(to_top,#4481eb_0%,#04befe_100%)] mx-auto"></div>
+          </div>
+  
           <p className='text-gray-800 font-medium text-lg pt-8 text-center mx-4 lg:text-2xl'>
             Join Over 1k Users On SpatiaScape
           </p>

@@ -5,14 +5,11 @@ import { Upload, Code, Layers, Paintbrush, Users, BarChart3 } from 'lucide-react
 const Features = () => {
   return (
     <div className=" bg-gradient-to-b from-white to-blue-300 text-white">
-      {/* Hero Section */}
-      
-
-      {/* Key Features Overview */}
+        {/* Key Features Overview */}
       <section className="py-44 px-4 md:px-8 lg:px-16  backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl text-black font-bold mb-4">Features SpatiaScape Offers</h2>
+            <h2 className="text-3xl md:text-4xl text-black font-bold mb-4">Features SpatiaScape  Offers</h2>
             <div className="w-24 h-1 bg-[linear-gradient(to_top,#4481eb_0%,#04befe_100%)] mx-auto"></div>
           </div>
           

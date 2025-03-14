@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { HiMenu, HiX } from 'react-icons/hi';
 
 const MainNavBar = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
@@ -33,6 +34,11 @@ const MainNavBar = () => {
     const navigateTo = (path) => {
         navigate(path);
         setIsOpen(false);
+    };
+
+    // Function to check if the current path matches the menu item path
+    const isActive = (path) => {
+        return location.pathname === path;
     };
 
     return (
@@ -66,25 +72,25 @@ const MainNavBar = () => {
                     <div className='hidden md:flex'>
                         <ul className='flex space-x-5 md:space-x-10 lg:space-x-20'>
                             <li
-                                className='font-semibold text-lg md:text-sm cursor-pointer hover:text-gray-600 transition-colors'
+                                className={`font-semibold text-lg md:text-sm cursor-pointer hover:text-gray-600 transition-colors ${isActive('/features') ? 'text-blue-600' : ''}`}
                                 onClick={() => navigateTo('/features')}
                             >
                                 Features
                             </li>
                             <li
-                                className='font-semibold text-lg md:text-sm cursor-pointer hover:text-gray-600 transition-colors'
+                                className={`font-semibold text-lg md:text-sm cursor-pointer hover:text-gray-600 transition-colors ${isActive('/pricing') ? 'text-blue-600' : ''}`}
                                 onClick={() => navigateTo('/pricing')}
                             >
                                 Pricing
                             </li>
                             <li
-                                className='font-semibold text-lg md:text-sm cursor-pointer hover:text-gray-600 transition-colors'
+                                className={`font-semibold text-lg md:text-sm cursor-pointer hover:text-gray-600 transition-colors ${isActive('/docs') ? 'text-blue-600' : ''}`}
                                 onClick={() => navigateTo('/docs')}
                             >
                                 Docs
                             </li>
                             <li
-                                className='font-semibold text-lg md:text-sm cursor-pointer hover:text-gray-600 transition-colors'
+                                className={`font-semibold text-lg md:text-sm cursor-pointer hover:text-gray-600 transition-colors ${isActive('/contact') ? 'text-blue-600' : ''}`}
                                 onClick={() => navigateTo('/contact')}
                             >
                                 Contact
@@ -113,25 +119,25 @@ const MainNavBar = () => {
                     <div className='md:hidden mt-4 bg-white/80 backdrop-blur-md rounded-lg p-4 shadow-md'>
                         <ul className='flex flex-col space-y-4'>
                             <li
-                                className='font-semibold text-lg md:text-sm cursor-pointer hover:text-gray-600 transition-colors'
+                                className={`font-semibold text-lg md:text-sm cursor-pointer hover:text-gray-600 transition-colors ${isActive('/features') ? 'text-blue-600' : ''}`}
                                 onClick={() => navigateTo('/features')}
                             >
                                 Features
                             </li>
                             <li
-                                className='font-semibold text-lg md:text-sm cursor-pointer hover:text-gray-600 transition-colors'
+                                className={`font-semibold text-lg md:text-sm cursor-pointer hover:text-gray-600 transition-colors ${isActive('/pricing') ? 'text-blue-600' : ''}`}
                                 onClick={() => navigateTo('/pricing')}
                             >
                                 Pricing
                             </li>
                             <li
-                                className='font-semibold text-lg md:text-sm cursor-pointer hover:text-gray-600 transition-colors'
+                                className={`font-semibold text-lg md:text-sm cursor-pointer hover:text-gray-600 transition-colors ${isActive('/docs') ? 'text-blue-600' : ''}`}
                                 onClick={() => navigateTo('/docs')}
                             >
                                 Docs
                             </li>
                             <li
-                                className='font-semibold text-lg md:text-sm cursor-pointer hover:text-gray-600 transition-colors'
+                                className={`font-semibold text-lg md:text-sm cursor-pointer hover:text-gray-600 transition-colors ${isActive('/contact') ? 'text-blue-600' : ''}`}
                                 onClick={() => navigateTo('/contact')}
                             >
                                 Contact
