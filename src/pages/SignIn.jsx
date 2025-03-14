@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import API from '../utils/Api';
 import { useStateContext } from '../contexts/ContextProvider';
@@ -58,18 +58,26 @@ const SignIn = () => {
     };
 
     return (
-        <div className='h-screen w-full flex bg-gray-200 justify-center items-center'>
-            <div className="auth-container">
+        <div className='h-screen w-full flex flex-col bg-white '>
+            <div
+                className='lg:pl-20 lg:pt-12 px-10 py-10 flex items-baseline font-bold cursor-pointer'
+                onClick={() => navigate('/')}
+            >
+                <h1 className='text-xl md:text-2xl'>S</h1>
+                <h1 className='text-xl md:text-xl'>patiaScape</h1>
+            </div>
+
+            <div className="auth-container h-full flex flex-col justify-center items-center">
                 <h2 className='lg:text-3xl text-center font-bold pb-3'>Welcome Back</h2>
                 {/* {error && <div className="error-message pb-2 text-xs flex justify-center text-red-500 font-semibold">{error}</div>} */}
 
-                <form onSubmit={handleSubmit} className='bg-light-gray shadow-xl rounded-lg px-16 py-10'>
+                <form onSubmit={handleSubmit} className='bg-stone-200 shadow-xl rounded-lg px-16 py-10'>
                     <div className="form-group flex flex-col">
                         <label className='pb-2'>Email</label>
                         <input
                             type="email"
                             name="email"
-                            className='rounded-lg p-2 bg-gray-200'
+                            className='rounded-lg p-2 bg-white'
                             value={formData.email}
                             onChange={handleChange}
                             required
@@ -88,7 +96,7 @@ const SignIn = () => {
                         <input
                             type={showPassword ? "text" : "password"}
                             name="password"
-                            className='rounded-lg p-2 bg-gray-200'
+                            className='rounded-lg p-2 bg-white'
                             value={formData.password}
                             onChange={handleChange}
                             required
@@ -97,7 +105,7 @@ const SignIn = () => {
 
                     <div className='flex justify-center pt-6'>
                         <button
-                            className='p-3 bg-black font-semibold text-white text-sm rounded hover:bg-white hover:text-black hover:border border-black'
+                            className='p-3 bg-Btn font-semibold text-white text-sm rounded hover:bg-white hover:text-black hover:border border-black'
                             type="submit"
                             disabled={loading}>
                             {loading ? 'Signing In...' : 'Sign In'}
