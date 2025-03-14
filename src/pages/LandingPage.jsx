@@ -162,7 +162,7 @@ const LandingPage = () => {
           <div className='bg-white w-full h-full rounded-[30px] flex'>
             <div className='flex justify-center  flex-col lg:flex-row items-center gap-y-5 pb-5 gap-x-5'>
               <div className='flex flex-col justify-start items-start pt-12 lg:pl-12 pl-4 pr-4'>
-                <h1 className='font-bold text-3xl'>Seamlessly Integrate All Your Favorite Tools</h1>
+                <h1 className='font-bold text-3xl'>Seamlessly Integrate With All Your Favorite Tools</h1>
                 <p className='text-gray-400 text-sm pt-4 pb-2'>
                   Connect SpatiaScape to a wide range of popular applications. This integration enables you to access
                   valuable insights and metrics from a single dashboard. By integrating your tools, you can gain deeper

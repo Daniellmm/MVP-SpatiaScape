@@ -1,76 +1,99 @@
 import React, { useState } from 'react';
 
 const Pricing = () => {
-
   const [isYearly, setIsYearly] = useState(true);
+
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const faqs = [
+    {
+      question: "What is SpatiaScape and how does it work?",
+      answer: "SpatiaScape is a SaaS platform that allows users to upload, view, and share 3D models seamlessly. It provides an embeddable 3D viewer for websites, supports multiple file formats, and offers advanced features like VR/AR previews and custom branding.",
+    },
+    {
+      question: "How much does SpatiaScape cost?",
+      answer: "SpatiaScape offers a Free plan for hobbyists and small projects, as well as Basic, Pro, and Enterprise plans for businesses of all sizes. You can start with the Free plan and upgrade anytime. Check our Pricing page for more details.",
+    },
+    // Add more FAQs here
+  ];
+
+  const toggleFAQ = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
 
   const pricingPlans = [
     {
       name: "Free",
       description: "Hobbyists, students, or small projects.",
-      price: 160,
-      tag: "Most Popular",
+      monthlyPrice: 0,
+      yearlyPrice: 0,
       features: [
-        "10 inventory locations",
-        "24/7 chat support",
-        "Localized global selling (3 markets)",
-        "POS Lite"
+        "Max File Size: 100MB",
+        "Max Models: 5",
+        "Storage: 1GB",
+        "Support: Community",
       ],
-      buttonText: "Create Account"
+      buttonText: "Create Account",
     },
     {
       name: "Basic",
       description: "small businesses",
-      price: 299,
+      monthlyPrice: 30,
+      yearlyPrice: 299,
       features: [
-        "10 inventory locations",
-        "24/7 chat support",
-        "Localized global selling (3 markets)",
-        "5 additional staff accounts",
-        "POS Lite"
+        "Max File Size: 500MB",
+        "Max Models: 20",
+        "Storage: 10GB",
+        "Custom Branding",
+        "API Access: Basic",
+        "Analytics: Basic",
+        "Support: Email",
       ],
-      buttonText: "Try for free"
+      buttonText: "Try for free",
     },
     {
       name: "Pro",
       description: "As your business scales",
-      price: 599,
+      monthlyPrice: 99,
+      yearlyPrice: 849,
       features: [
-        "10 inventory locations",
-        "Enhanced 24/7 chat support",
-        "Localized global selling (3 markets) + add markets for $59 USD/mo each",
-        "15 additional staff accounts",
-        "10x checkout capacity",
-        "POS Lite"
+        "Max File Size: 1GB",
+        "Max Models: 100",
+        "Storage: 50GB",
+        "Custom Branding",
+        "API Access: Advanced",
+        "Analytics: Advanced",
+        "Support: Live Chat",
       ],
-      buttonText: "Try for free"
+      buttonText: "Try for free",
     },
     {
       name: "Enterprise",
       description: "Large businesses, enterprises, or high-volume users.",
-      price: 2300,
       features: [
-        "200 inventory locations",
-        "Priority 24/7 phone support",
-        "Localized global selling (50 markets)",
-        "Unlimited staff accounts",
-        "Customizable checkout with 40x capacity",
-        "200 POS Pro locations",
-        "Sell wholesale/B2B"
+        "Max File Size: Unlimited",
+        "Max Models: Unlimited",
+        "Storage: Custom",
+        "Custom Branding",
+        "API Access: Full",
+        "Analytics: Custom",
+        "Support: 24/7",
       ],
       buttonText: "Get in touch",
-      customPricing: true
-    }
+      customPricing: true,
+    },
   ];
 
   return (
     <>
       <section>
-        <div className='flex flex-col w-full justify-start items-center  pb-10 pt-44 relative overflow-hidden bg-gradient-to-b from-blue-300 to-white'>
+        <div className='flex flex-col w-full justify-start items-center pb-10 pt-44 relative overflow-hidden bg-gradient-to-b from-blue-300 to-white'>
           <h1 className='font-bold lg:text-7xl text-3xl px-5 text-center'>
-            Bring Costumers Closer To You
+            Bring Customers Closer To You
           </h1>
-          <p className='text-gray-800 font-medium text-lg pt-8 text-center mx-4 lg:text-2xl'>Join Over 1k Users On SpatiaScape</p>
+          <p className='text-gray-800 font-medium text-lg pt-8 text-center mx-4 lg:text-2xl'>
+            Join Over 1k Users On SpatiaScape
+          </p>
 
           <div>
             <div className="max-w-7xl mx-auto px-4 py-8">
@@ -87,7 +110,7 @@ const Pricing = () => {
                     className={`px-4 py-2 rounded-full text-sm font-medium ${isYearly ? 'bg-Btn text-white' : 'text-gray-700'}`}
                     onClick={() => setIsYearly(true)}
                   >
-                    Pay yearly (save 25%)*
+                    Pay yearly
                   </button>
                 </div>
               </div>
@@ -98,11 +121,7 @@ const Pricing = () => {
                   <div key={index} className="border rounded-lg overflow-hidden flex flex-col">
                     {/* Promo Banner */}
                     <div className="bg-[linear-gradient(to_top,#4481eb_0%,#04befe_100%)] text-center p-2 py-4">
-                      {/* {index < 3 ? (
-                        <span className="text-sm font-medium">$1/month for first 3 months</span>
-                      ) : (
-                        <span className="text-sm font-medium">Available on a 1- or 3-year term</span>
-                      )} */}
+                      {/* Optional: Add promo text here */}
                     </div>
 
                     {/* Card Content */}
@@ -112,36 +131,30 @@ const Pricing = () => {
                           <h3 className="text-xl font-bold">{plan.name}</h3>
                           <p className="text-gray-600">{plan.description}</p>
                         </div>
-                        {plan.tag && (
-                          <span className="bg-[linear-gradient(to_top,#4481eb_0%,#04befe_100%)] text-sm px-3 py-1 rounded-full">
-                            {plan.tag}
-                          </span>
-                        )}
                       </div>
 
                       <div className="mb-6">
-                        {plan.termText && <div className="text-gray-500 text-sm">{plan.termText}</div>}
                         <div className="flex items-baseline">
-                          <span className="text-4xl font-bold">
-                            ${plan.price}
-                          </span>
-                          <span className="text-gray-600 ml-1">
-                            USD/month
-                          </span>
+                          {plan.customPricing ? (
+                            <span className="text-4xl font-bold">Custom</span>
+                          ) : (
+                            <>
+                              <span className="text-4xl font-bold">
+                                ${isYearly ? plan.yearlyPrice : plan.monthlyPrice}
+                              </span>
+                              <span className="text-gray-600 ml-1">
+                                USD/{isYearly ? "year" : "month"}
+                              </span>
+                            </>
+                          )}
                         </div>
                         <div className="text-gray-500 text-sm">
-                          {plan.yearTerm || "billed once yearly"}
+                          {plan.customPricing
+                            ? "Contact us for pricing"
+                            : isYearly
+                              ? "billed once yearly"
+                              : "billed monthly"}
                         </div>
-                      </div>
-
-                      <div className="mb-6">
-                        <p className="font-medium mb-1">Card rates starting at</p>
-                        <p className="text-gray-600 flex items-center">
-                          <svg className="w-4 h-4 mr-2 text-green-500" viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                          </svg>
-                          {plan.cardRate}
-                        </p>
                       </div>
 
                       <div className="mb-6">
@@ -149,7 +162,7 @@ const Pricing = () => {
                         <ul className="space-y-2">
                           {plan.features.map((feature, idx) => (
                             <li key={idx} className="flex items-start">
-                              <svg className="w-4 h-4 mt-1 mr-2 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                              <svg className="w-5 h-5 mt-1 mr-2 text-green-500" viewBox="0 0 20 20" fill="currentColor">
                                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                               </svg>
                               <span className="text-gray-600">{feature}</span>
@@ -170,11 +183,31 @@ const Pricing = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
+      {/* FAQ section */}
+      <section>
+        <div className="faq-section max-w-4xl mx-auto px-4 py-8">
+          <h2 className="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+          {faqs.map((faq, index) => (
+            <div key={index} className="faq-item border-b border-gray-300 py-4">
+              <button
+                className="w-full text-left flex justify-between items-center px-2"
+                onClick={() => toggleFAQ(index)}
+              >
+                <h3 className="lg:text-lg text-sm font-medium">{faq.question}</h3>
+                <span className="text-xl text-center">{activeIndex === index ? "−" : "+"}</span>
+              </button>
+              {activeIndex === index && (
+                <p className="mt-2 text-gray-600">{faq.answer}</p>
+              )}
+            </div>
+          ))}
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default Pricing
+export default Pricing;

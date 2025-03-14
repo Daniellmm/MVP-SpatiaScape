@@ -57,3 +57,27 @@ body {
     background: #f8d7da;
     border-radius: 4px;
   } */
+
+
+  .faq-section {
+    font-family: Arial, sans-serif;
+  }
+  
+  .faq-item {
+    transition: all 0.3s ease;
+  }
+  
+  .faq-item button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 0;
+  }
+  
+  .faq-item button:hover {
+    color: #007bff;
+  }
+  
+  .faq-item p {
+    padding-left: 20px;
+  }
