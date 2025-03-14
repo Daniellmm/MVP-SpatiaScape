@@ -30,7 +30,7 @@ const Sidebar = () => {
     <div className=' h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10'>
       {activeMenu && (<>
         <div className=' absolute bg-light-gray w-full pb-3 flex justify-between shadow-sm items-center'>
-          <Link to='/' onClick={handleCloseSideBar}
+          <Link to='/dashboard' onClick={handleCloseSideBar}
             className='items-center gap-3 ml-3 mt-4 flex  text-xl font-extrabold tracking-tight dark:text-white text-slate-900'>
             <SiShopware /> <span>SpatiaScape</span>
           </Link>
